@@ -14,6 +14,18 @@ export async function logBehaviorAction(formData: FormData) {
   if (typeof tagId !== "string" || !tagId) return;
 
   const supabase = await createClient();
+
+  const { data: tag } = await supabase
+    .from("behavior_tags")
+    .select("note_required")
+    .eq("id", tagId)
+    .single();
+
+  // Defense in depth: the "Other" tag's textarea is HTML-required, but a
+  // direct action call could skip that. Silently drop rather than insert
+  // a record that violates the tag's own rule.
+  if (tag?.note_required && !note) return;
+
   await supabase.from("behavior_entries").insert({
     tag_id: tagId,
     note,

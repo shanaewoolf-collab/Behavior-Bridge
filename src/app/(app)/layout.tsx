@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { requireUser } from "@/lib/auth/session";
 
 export default async function AppLayout(props: LayoutProps<"/">) {
@@ -21,6 +22,14 @@ export default async function AppLayout(props: LayoutProps<"/">) {
           </form>
         </div>
       </header>
+      <nav className="flex gap-4 border-b border-navy/10 bg-white px-4 py-2 text-sm font-bold text-navy">
+        <Link href="/" className="hover:underline">
+          Home
+        </Link>
+        <Link href="/rewards" className="hover:underline">
+          Stars
+        </Link>
+      </nav>
       <main className="p-4">{props.children}</main>
     </div>
   );

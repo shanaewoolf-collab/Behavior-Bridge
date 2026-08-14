@@ -8,7 +8,7 @@ export default async function HomePage() {
   const [{ data: tags }, { data: entries }] = await Promise.all([
     supabase
       .from("behavior_tags")
-      .select("id, label")
+      .select("id, label, type, note_required")
       .eq("is_active", true)
       .order("sort_order"),
     supabase
