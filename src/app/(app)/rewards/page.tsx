@@ -59,6 +59,19 @@ export default async function RewardsPage() {
   );
 }
 
+function GiveStarButton() {
+  return (
+    <form action={giveStarAction}>
+      <button
+        type="submit"
+        className="rounded-md bg-gold px-6 py-4 font-bold text-navy transition-colors hover:bg-gold/90"
+      >
+        Give a star
+      </button>
+    </form>
+  );
+}
+
 function StarRow({ filled, total }: { filled: number; total: number }) {
   return (
     <div className="flex gap-1 text-3xl leading-none">
@@ -108,6 +121,7 @@ function ParentStarView({
           +{bonus} bonus star{bonus === 1 ? "" : "s"}
         </p>
       )}
+      <GiveStarButton />
     </section>
   );
 }
@@ -115,14 +129,7 @@ function ParentStarView({
 function GiverStarView({ todayCount }: { todayCount: number }) {
   return (
     <section className="flex flex-col items-start gap-2">
-      <form action={giveStarAction}>
-        <button
-          type="submit"
-          className="rounded-md bg-gold px-6 py-4 font-bold text-navy transition-colors hover:bg-gold/90"
-        >
-          Give a star
-        </button>
-      </form>
+      <GiveStarButton />
       <p className="text-sm text-navy/60">{todayCount} given today</p>
     </section>
   );
@@ -143,6 +150,7 @@ function RecentStars({ stars }: { stars: RecentStar[] }) {
           <span className="text-navy">{star.giver?.full_name ?? "Unknown"}</span>
           <span className="text-navy/50">
             {new Date(star.awarded_at).toLocaleString(undefined, {
+              timeZone: CHILD_TIMEZONE,
               month: "short",
               day: "numeric",
               hour: "numeric",

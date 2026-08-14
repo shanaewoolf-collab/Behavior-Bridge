@@ -1,3 +1,5 @@
+import { CHILD_TIMEZONE } from "@/lib/timezone";
+
 export type FeedEntry = {
   id: string;
   note: string | null;
@@ -28,6 +30,7 @@ export function FeedList({ entries }: { entries: FeedEntry[] }) {
             </span>
             <span className="text-navy/50">
               {new Date(entry.occurred_at).toLocaleString(undefined, {
+                timeZone: CHILD_TIMEZONE,
                 month: "short",
                 day: "numeric",
                 hour: "numeric",
