@@ -2,17 +2,16 @@
 
 /* Behavior Bridge brand palette */
 @theme {
-  --color-ink: #000000;
-  --color-navy: #1f3345;
-  --color-red: #b54745;
-  --color-gold: #c78f57;
-  --color-sea-green: #85abab;
-  --color-beige: #f0ede5;
+  --color-white: #fcfcf6;
+  --color-midnight: #132441;
+  --color-chartreuse: #daf561;
+  --color-powder-blue: #87bbd7;
+  --color-lapis-blue: #3451a3;
 }
 
 :root {
-  --background: var(--color-beige);
-  --foreground: var(--color-navy);
+  --background: var(--color-white);
+  --foreground: var(--color-midnight);
 }
 
 @theme inline {
@@ -23,8 +22,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: var(--color-ink);
-    --foreground: var(--color-beige);
+    --background: var(--color-midnight);
+    --foreground: var(--color-white);
   }
 }
 

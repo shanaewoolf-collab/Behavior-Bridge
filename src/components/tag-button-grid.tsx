@@ -8,14 +8,14 @@ type Tag = {
 };
 
 const TYPE_STYLES: Record<string, string> = {
-  positive: "bg-sea-green text-navy hover:bg-sea-green/90",
-  challenging: "bg-red text-beige hover:bg-red/90",
+  positive: "bg-powder-blue text-midnight hover:bg-powder-blue/90",
+  challenging: "bg-lapis-blue text-white hover:bg-lapis-blue/90",
 };
 
 export function TagButtonGrid({ tags }: { tags: Tag[] }) {
   if (tags.length === 0) {
     return (
-      <p className="text-sm text-navy/60">
+      <p className="text-sm text-midnight/60">
         No behavior tags set up yet — ask Shanae to add the tag list.
       </p>
     );
@@ -24,27 +24,28 @@ export function TagButtonGrid({ tags }: { tags: Tag[] }) {
   return (
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
       {tags.map((tag) => {
-        const buttonClass = TYPE_STYLES[tag.type ?? ""] ?? "bg-navy text-beige hover:bg-navy/90";
+        const buttonClass =
+          TYPE_STYLES[tag.type ?? ""] ?? "bg-midnight text-white hover:bg-midnight/90";
 
         if (tag.note_required) {
           return (
             <div
               key={tag.id}
-              className="rounded-lg border border-navy/15 bg-white p-3 sm:col-span-1"
+              className="rounded-lg border border-midnight/15 bg-white p-3 sm:col-span-1"
             >
               <form action={logBehaviorAction} className="flex flex-col gap-2">
                 <input type="hidden" name="tagId" value={tag.id} />
-                <span className="font-bold text-navy">{tag.label}</span>
+                <span className="font-bold text-midnight">{tag.label}</span>
                 <textarea
                   name="note"
                   rows={2}
                   required
                   placeholder="What happened? (required for this tag)"
-                  className="rounded border border-navy/20 p-2 text-sm text-navy"
+                  className="rounded border border-midnight/20 p-2 text-sm text-midnight"
                 />
                 <button
                   type="submit"
-                  className="rounded-md bg-navy px-3 py-2 text-center font-bold text-beige transition-colors hover:bg-navy/90"
+                  className="rounded-md bg-midnight px-3 py-2 text-center font-bold text-white transition-colors hover:bg-midnight/90"
                 >
                   Log
                 </button>
@@ -56,7 +57,7 @@ export function TagButtonGrid({ tags }: { tags: Tag[] }) {
         return (
           <div
             key={tag.id}
-            className="rounded-lg border border-navy/15 bg-white p-3"
+            className="rounded-lg border border-midnight/15 bg-white p-3"
           >
             <form action={logBehaviorAction}>
               <input type="hidden" name="tagId" value={tag.id} />
@@ -66,7 +67,7 @@ export function TagButtonGrid({ tags }: { tags: Tag[] }) {
               >
                 {tag.label}
               </button>
-              <details className="mt-2 text-sm text-navy/70">
+              <details className="mt-2 text-sm text-midnight/70">
                 <summary className="cursor-pointer select-none">
                   Add a note
                 </summary>
@@ -75,11 +76,11 @@ export function TagButtonGrid({ tags }: { tags: Tag[] }) {
                     name="note"
                     rows={2}
                     placeholder="Optional note"
-                    className="rounded border border-navy/20 p-2 text-navy"
+                    className="rounded border border-midnight/20 p-2 text-midnight"
                   />
                   <button
                     type="submit"
-                    className="rounded border border-navy/30 py-1 text-navy transition-colors hover:bg-navy/5"
+                    className="rounded border border-midnight/30 py-1 text-midnight transition-colors hover:bg-midnight/5"
                   >
                     Log with note
                   </button>

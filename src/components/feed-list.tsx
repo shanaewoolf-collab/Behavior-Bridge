@@ -11,7 +11,7 @@ export type FeedEntry = {
 export function FeedList({ entries }: { entries: FeedEntry[] }) {
   if (entries.length === 0) {
     return (
-      <p className="text-sm text-navy/60">
+      <p className="text-sm text-midnight/60">
         No entries yet — log the first one above.
       </p>
     );
@@ -22,13 +22,13 @@ export function FeedList({ entries }: { entries: FeedEntry[] }) {
       {entries.map((entry) => (
         <li
           key={entry.id}
-          className="rounded-lg border border-navy/10 bg-white p-3"
+          className="rounded-lg border border-midnight/10 bg-white p-3"
         >
           <div className="flex items-center justify-between text-sm">
-            <span className="font-bold text-navy">
+            <span className="font-bold text-midnight">
               {entry.tag?.label ?? "Behavior"}
             </span>
-            <span className="text-navy/50">
+            <span className="text-midnight/50">
               {new Date(entry.occurred_at).toLocaleString(undefined, {
                 timeZone: CHILD_TIMEZONE,
                 month: "short",
@@ -38,10 +38,10 @@ export function FeedList({ entries }: { entries: FeedEntry[] }) {
               })}
             </span>
           </div>
-          <p className="text-sm text-navy/70">
+          <p className="text-sm text-midnight/70">
             logged by {entry.logger?.full_name ?? "Unknown"}
           </p>
-          {entry.note && <p className="mt-1 text-sm text-navy">{entry.note}</p>}
+          {entry.note && <p className="mt-1 text-sm text-midnight">{entry.note}</p>}
         </li>
       ))}
     </ul>

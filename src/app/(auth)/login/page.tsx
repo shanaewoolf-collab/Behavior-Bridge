@@ -5,9 +5,9 @@ export default async function LoginPage(props: PageProps<"/login">) {
 
   return (
     <main className="mx-auto flex min-h-screen max-w-sm flex-col justify-center gap-4 p-6">
-      <h1 className="text-2xl font-bold text-navy">Behavior Bridge</h1>
+      <h1 className="text-2xl font-bold text-midnight">Behavior Bridge</h1>
       {error && (
-        <p className="rounded bg-red/10 p-2 text-sm text-red">{error}</p>
+        <p className="rounded bg-lapis-blue/10 p-2 text-sm text-lapis-blue">{error}</p>
       )}
       <form action={login} className="flex flex-col gap-3">
         <input
@@ -16,7 +16,7 @@ export default async function LoginPage(props: PageProps<"/login">) {
           required
           autoComplete="email"
           placeholder="Email"
-          className="rounded border border-navy/20 bg-white p-2 text-navy placeholder:text-navy/40"
+          className="rounded border border-midnight/20 bg-white p-2 text-midnight placeholder:text-midnight/40"
         />
         <input
           name="password"
@@ -24,11 +24,11 @@ export default async function LoginPage(props: PageProps<"/login">) {
           required
           autoComplete="current-password"
           placeholder="Password"
-          className="rounded border border-navy/20 bg-white p-2 text-navy placeholder:text-navy/40"
+          className="rounded border border-midnight/20 bg-white p-2 text-midnight placeholder:text-midnight/40"
         />
         <button
           type="submit"
-          className="rounded bg-navy p-2 font-bold text-beige transition-colors hover:bg-navy/90"
+          className="rounded bg-midnight p-2 font-bold text-white transition-colors hover:bg-midnight/90"
         >
           Log in
         </button>
