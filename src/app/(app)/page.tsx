@@ -23,13 +23,13 @@ export default async function HomePage() {
   return (
     <div className="flex flex-col gap-6">
       <section>
-        <h2 className="mb-2 text-sm font-bold uppercase tracking-wide text-midnight/60">
+        <h2 className="mb-2 text-sm font-bold uppercase tracking-wide text-atlantic/60">
           Log a behavior
         </h2>
         <TagButtonGrid tags={tags ?? []} />
       </section>
       <section>
-        <h2 className="mb-2 text-sm font-bold uppercase tracking-wide text-midnight/60">
+        <h2 className="mb-2 text-sm font-bold uppercase tracking-wide text-atlantic/60">
           Recent activity
         </h2>
         <FeedList entries={(entries as unknown as FeedEntry[]) ?? []} />

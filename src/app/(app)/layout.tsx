@@ -6,7 +6,7 @@ export default async function AppLayout(props: LayoutProps<"/">) {
 
   return (
     <div className="min-h-screen">
-      <header className="flex items-center justify-between bg-midnight p-4 text-white">
+      <header className="flex items-center justify-between bg-atlantic p-4 text-white">
         <span className="font-bold">Behavior Bridge</span>
         <div className="flex items-center gap-3 text-sm">
           <span>
@@ -22,7 +22,7 @@ export default async function AppLayout(props: LayoutProps<"/">) {
           </form>
         </div>
       </header>
-      <nav className="flex gap-4 border-b border-midnight/10 bg-white px-4 py-2 text-sm font-bold text-midnight">
+      <nav className="flex gap-4 border-b border-atlantic/10 bg-white px-4 py-2 text-sm font-bold text-atlantic">
         <Link href="/" className="hover:underline">
           Home
         </Link>

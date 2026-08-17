@@ -50,7 +50,7 @@ export default async function RewardsPage() {
         <GiverStarView todayCount={todayCount} />
       )}
       <section>
-        <h2 className="mb-2 text-sm font-bold uppercase tracking-wide text-midnight/60">
+        <h2 className="mb-2 text-sm font-bold uppercase tracking-wide text-atlantic/60">
           Recent stars
         </h2>
         <RecentStars stars={(recentStars as unknown as RecentStar[]) ?? []} />
@@ -64,7 +64,7 @@ function GiveStarButton() {
     <form action={giveStarAction}>
       <button
         type="submit"
-        className="rounded-md bg-chartreuse px-6 py-4 font-bold text-midnight transition-colors hover:bg-chartreuse/90"
+        className="rounded-md bg-cornsilk px-6 py-4 font-bold text-atlantic transition-colors hover:bg-cornsilk/90"
       >
         Give a star
       </button>
@@ -76,7 +76,7 @@ function StarRow({ filled, total }: { filled: number; total: number }) {
   return (
     <div className="flex gap-1 text-3xl leading-none">
       {Array.from({ length: total }, (_, i) => (
-        <span key={i} className={i < filled ? "text-chartreuse" : "text-midnight/15"}>
+        <span key={i} className={i < filled ? "text-glacier" : "text-atlantic/15"}>
           ★
         </span>
       ))}
@@ -93,7 +93,7 @@ function ParentStarView({
 }) {
   if (!setting) {
     return (
-      <p className="text-sm text-midnight/60">
+      <p className="text-sm text-atlantic/60">
         No reward threshold configured yet.
       </p>
     );
@@ -104,7 +104,7 @@ function ParentStarView({
 
   return (
     <section className="flex flex-col gap-3">
-      <h2 className="text-sm font-bold uppercase tracking-wide text-midnight/60">
+      <h2 className="text-sm font-bold uppercase tracking-wide text-atlantic/60">
         Today&apos;s stars
       </h2>
       <StarRow
@@ -112,12 +112,12 @@ function ParentStarView({
         total={setting.stars_required}
       />
       {earned && (
-        <div className="rounded-lg bg-chartreuse/20 p-3 text-center font-bold text-midnight">
+        <div className="rounded-lg bg-glacier/30 p-3 text-center font-bold text-atlantic">
           Ticket earned today &mdash; {setting.reward_description}
         </div>
       )}
       {bonus > 0 && (
-        <p className="text-sm text-midnight/70">
+        <p className="text-sm text-atlantic/70">
           +{bonus} bonus star{bonus === 1 ? "" : "s"}
         </p>
       )}
@@ -130,14 +130,14 @@ function GiverStarView({ todayCount }: { todayCount: number }) {
   return (
     <section className="flex flex-col items-start gap-2">
       <GiveStarButton />
-      <p className="text-sm text-midnight/60">{todayCount} given today</p>
+      <p className="text-sm text-atlantic/60">{todayCount} given today</p>
     </section>
   );
 }
 
 function RecentStars({ stars }: { stars: RecentStar[] }) {
   if (stars.length === 0) {
-    return <p className="text-sm text-midnight/60">No stars given yet.</p>;
+    return <p className="text-sm text-atlantic/60">No stars given yet.</p>;
   }
 
   return (
@@ -145,10 +145,10 @@ function RecentStars({ stars }: { stars: RecentStar[] }) {
       {stars.map((star) => (
         <li
           key={star.id}
-          className="flex justify-between rounded border border-midnight/10 bg-white px-3 py-2"
+          className="flex justify-between rounded border border-atlantic/10 bg-white px-3 py-2"
         >
-          <span className="text-midnight">{star.giver?.full_name ?? "Unknown"}</span>
-          <span className="text-midnight/50">
+          <span className="text-atlantic">{star.giver?.full_name ?? "Unknown"}</span>
+          <span className="text-atlantic/50">
             {new Date(star.awarded_at).toLocaleString(undefined, {
               timeZone: CHILD_TIMEZONE,
               month: "short",
