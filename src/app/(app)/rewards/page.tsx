@@ -1,7 +1,7 @@
 import { requireUser } from "@/lib/auth/session";
 import { createClient } from "@/lib/supabase/server";
 import { CHILD_TIMEZONE, getLocalDay } from "@/lib/timezone";
-import { giveStarAction } from "./actions";
+import { GiveStarButton } from "@/components/give-star-button";
 
 type RecentStar = {
   id: string;
@@ -59,19 +59,6 @@ export default async function RewardsPage() {
   );
 }
 
-function GiveStarButton() {
-  return (
-    <form action={giveStarAction}>
-      <button
-        type="submit"
-        className="rounded-md bg-cornsilk px-6 py-4 font-bold text-atlantic transition-colors hover:bg-cornsilk/90"
-      >
-        Give a star
-      </button>
-    </form>
-  );
-}
-
 function StarRow({ filled, total }: { filled: number; total: number }) {
   return (
     <div className="flex gap-1 text-3xl leading-none">
@@ -121,16 +108,15 @@ function ParentStarView({
           +{bonus} bonus star{bonus === 1 ? "" : "s"}
         </p>
       )}
-      <GiveStarButton />
+      <GiveStarButton todayCount={todayCount} />
     </section>
   );
 }
 
 function GiverStarView({ todayCount }: { todayCount: number }) {
   return (
-    <section className="flex flex-col items-start gap-2">
-      <GiveStarButton />
-      <p className="text-sm text-atlantic/60">{todayCount} given today</p>
+    <section className="flex flex-col items-center gap-2 py-4">
+      <GiveStarButton todayCount={todayCount} />
     </section>
   );
 }
