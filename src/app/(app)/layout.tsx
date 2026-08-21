@@ -30,7 +30,7 @@ export default async function AppLayout(props: LayoutProps<"/">) {
           Stars
         </Link>
         {profile.role === "parent" && (
-          <Link href="/admin/tags" className="hover:underline">
+          <Link href="/admin" className="hover:underline">
             Admin
           </Link>
         )}
