@@ -29,6 +29,11 @@ export default async function AppLayout(props: LayoutProps<"/">) {
         <Link href="/rewards" className="hover:underline">
           Stars
         </Link>
+        {profile.role === "parent" && (
+          <Link href="/admin/tags" className="hover:underline">
+            Admin
+          </Link>
+        )}
       </nav>
       <main className="p-4">{props.children}</main>
     </div>
